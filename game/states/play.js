@@ -62,6 +62,10 @@
       this.stakeText.setText(this.cardsModel.staked);
       this.balanceText.setText(this.cardsModel.balance);      
 
+      //hide closed card if none left
+      if (this.cardsModel.cardsLeft() == 0)
+          this.closedCard.kill();
+
       //enable clicks for current card
       this.crossMark0.enable();
       this.crossMark1.enable();
