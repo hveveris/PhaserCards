@@ -17,4 +17,5 @@ Payout for the same suit: 4 \* stake \* 3
 - extending Phaser objects
 - using tiled sprite background
 - composing and tweening sprites
+- custom tweening textfield texts
 - using POJO model to store and process game logic
