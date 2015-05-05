@@ -1,7 +1,7 @@
 
 CardsModel = function (game, x, y) {
 
-	this.symbols = ["clubs", "hearts", "spades", "diamonds"];
+	  this.symbols = ["clubs", "hearts", "spades", "diamonds"];
     this.values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
     this.cardStack = [];
     this.openCard = null;

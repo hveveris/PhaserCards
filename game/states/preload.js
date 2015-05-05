@@ -10,7 +10,7 @@ Preload.prototype = {
   preload: function() {
 
     //create and position preloader UI
-    this.asset = this.add.sprite(this.width/2,this.height/2, 'preloader');
+    this.asset = this.add.sprite(this.game.width/2,this.game.height/2, 'preloader');
     this.asset.anchor.setTo(0.5, 0.5);
 
     //listen for loadComplete
