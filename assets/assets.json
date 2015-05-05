@@ -1,0 +1,139 @@
+{"frames": [
+
+{
+	"filename": "closedCard",
+	"frame": {"x":576,"y":2,"w":150,"h":220},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":220},
+	"sourceSize": {"w":150,"h":220}
+},
+{
+	"filename": "clubsL",
+	"frame": {"x":264,"y":2,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":50,"h":50}
+},
+{
+	"filename": "clubsS",
+	"frame": {"x":29,"y":2,"w":25,"h":25},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":25,"h":25},
+	"sourceSize": {"w":25,"h":25}
+},
+{
+	"filename": "crossMark",
+	"frame": {"x":110,"y":2,"w":49,"h":45},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":49,"h":45},
+	"sourceSize": {"w":49,"h":45}
+},
+{
+	"filename": "diamondsL",
+	"frame": {"x":212,"y":2,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":50,"h":50}
+},
+{
+	"filename": "diamondsS",
+	"frame": {"x":56,"y":2,"w":25,"h":25},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":25,"h":25},
+	"sourceSize": {"w":25,"h":25}
+},
+{
+	"filename": "heartsL",
+	"frame": {"x":368,"y":2,"w":54,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":50},
+	"sourceSize": {"w":54,"h":50}
+},
+{
+	"filename": "heartsS",
+	"frame": {"x":83,"y":2,"w":25,"h":25},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":25,"h":25},
+	"sourceSize": {"w":25,"h":25}
+},
+{
+	"filename": "cards",
+	"frame": {"x":2,"y":224,"w":151,"h":171},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":151,"h":171},
+	"sourceSize": {"w":151,"h":171}
+},
+{
+	"filename": "notes",
+	"frame": {"x":155,"y":224,"w":204,"h":253},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":204,"h":253},
+	"sourceSize": {"w":204,"h":253}
+},
+{
+	"filename": "openCard",
+	"frame": {"x":424,"y":2,"w":150,"h":220},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":220},
+	"sourceSize": {"w":150,"h":220}
+},
+{
+	"filename": "papers",
+	"frame": {"x":361,"y":224,"w":390,"h":414},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":390,"h":414},
+	"sourceSize": {"w":390,"h":414}
+},
+{
+	"filename": "spadesL",
+	"frame": {"x":316,"y":2,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":50,"h":50}
+},
+{
+	"filename": "spadesS",
+	"frame": {"x":2,"y":2,"w":25,"h":25},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":25,"h":25},
+	"sourceSize": {"w":25,"h":25}
+},
+{
+	"filename": "stackMark",
+	"frame": {"x":161,"y":2,"w":49,"h":38},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":49,"h":38},
+	"sourceSize": {"w":49,"h":38}
+},
+{
+	"filename": "table",
+	"frame": {"x":2,"y":640,"w":800,"h":320},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":800,"h":320},
+	"sourceSize": {"w":800,"h":320}
+}],
+"meta": {
+	"version": "1.0",
+	"image": "assets",
+	"format": "RGBA8888",
+	"size": {"w":804,"h":962},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:26c9296e74577e7cc669970d045b07cd:1afcccdae86b07646bc83c662b4be98f:a759b6bbc8381ac9c472b28f589ad0d6$"
+}
+}

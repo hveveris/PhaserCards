@@ -12,9 +12,9 @@ GameOver.prototype = {
   },
 
   create: function () {
-    this.table = this.game.add.tileSprite(0, 0, 800, 600, 'table');    
+    this.table = this.game.add.tileSprite(0, 0, 800, 600, 'assets', 'table');    
 
-    this.cards = this.game.add.image(this.game.world.centerX, 280, 'cards');
+    this.cards = this.game.add.image(this.game.world.centerX, 280, 'assets', 'cards');
     this.cards.anchor.setTo(0.5, 0.5);
 
     var style = { font: '35px Arial', fill: '#000000', align: 'center'};

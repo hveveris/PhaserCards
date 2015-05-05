@@ -18,24 +18,7 @@ Preload.prototype = {
     this.load.setPreloadSprite(this.asset);
 
     //load used assets
-    this.load.image('table', 'assets/tableTop.jpg');
-    this.load.image('papers', 'assets/papers.png');
-    this.load.image('cards', 'assets/introCards.png');
-    this.load.image('notes', 'assets/notes.png');
-    this.load.image('stackMark', 'assets/stackMark.png');
-    this.load.image('crossMark', 'assets/cross.png');
-
-    this.load.image('diamondsS', 'assets/diamondsS.png');
-    this.load.image('diamondsL', 'assets/diamondsL.png');
-    this.load.image('spadesS', 'assets/spadesS.png');
-    this.load.image('spadesL', 'assets/spadesL.png');
-    this.load.image('heartsS', 'assets/heartsS.png');
-    this.load.image('heartsL', 'assets/heartsL.png');
-    this.load.image('clubsS', 'assets/clubsS.png');
-    this.load.image('clubsL', 'assets/clubsL.png');
-
-    this.load.image('openCard', 'assets/openCard.png');
-    this.load.image('closedCard', 'assets/closedCard.png');
+    this.load.atlas('assets', 'assets/assets.png', 'assets/assets.json');
   },
 
   create: function() {

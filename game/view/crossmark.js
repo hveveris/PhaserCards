@@ -1,7 +1,7 @@
 
 CrossMark = function (game, x, y, index) {
 
-	Phaser.Sprite.call(this, game, x, y, "crossMark");    	
+	Phaser.Sprite.call(this, game, x, y, 'assets', 'crossMark');    	
 	this.index = index;	
 	this.tween = null;
 	game.add.existing(this);	

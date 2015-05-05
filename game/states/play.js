@@ -24,12 +24,12 @@
 
     addUI:function(){
       //repeating background
-      this.game.add.tileSprite(0, 0, 800, 600, 'table');
+      this.game.add.tileSprite(0, 0, 800, 600, 'assets', 'table');
       
       //some props
-      this.game.add.image(420, -20, 'papers');
-      this.game.add.image(43, 18, 'notes');
-      this.game.add.image(290, 58, 'stackMark');
+      this.game.add.image(420, -20, 'assets', 'papers');
+      this.game.add.image(43, 18, 'assets', 'notes');
+      this.game.add.image(290, 58, 'assets', 'stackMark');
 
       //cross marks
       this.crossMark0 = new CrossMark(this.game, 90, 280, 0);
