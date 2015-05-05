@@ -15,13 +15,12 @@ CardsModel = function (game, x, y) {
 
     this.fillCardStack = function(){      
       
-      for (var i=0; i<symbols.length; i++) 
-      {
-          for (var j=0; j<values.length; j++) 
-          {
-              cardStack.push({value:values[j], symbol:symbols[i]});                            
-          }
-      }      
+      var numValues = values.length;          
+      var numSymbols = symbols.length;
+
+      for (var i=0; i<numSymbols; i++) 
+        for (var j=0; j<numValues; j++) 
+          cardStack.push({value:values[j], symbol:symbols[i]});                                            
     };
 
     this.shuffleCards = function(){
@@ -70,15 +69,18 @@ CardsModel = function (game, x, y) {
     };
 
     this.processStacksAfterDraw = function(){
-    	var stackArray = null;
-	    for (var i = 0; i < 3; i++) 
+    	
+      var wonAmount = 0;
+      var stackArray = null;      
+      var numStacks = targetStacks.length;
+
+	    for (var i = 0; i < numStacks; i++) 
 	    {
 	      stackArray = targetStacks[i];
 	      
-	        if (stackArray.length == 4) 
-	        {
-	          var wonAmount = this.getStackWinAmount(stackArray);
-	          
+	        if (stackArray.length == 4){
+
+	          wonAmount = this.getStackWinAmount(stackArray);	          
 	          balance += wonAmount            	          
             paid += wonAmount;              
 
@@ -103,7 +105,9 @@ CardsModel = function (game, x, y) {
     };
 
     this.hasSameValuesFor = function(arr, attr){
-      for (var i = 1; i < arr.length; i++)
+      
+      var numItems = arr.length;
+      for (var i = 1; i < numItems; i++)
       {
         if (arr[i][attr] !== arr[0][attr])
             return false;
