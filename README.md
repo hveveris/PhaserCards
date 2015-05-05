@@ -1,5 +1,5 @@
 # PhaserCards
-A simlple card game utilizing Phaser.io framework
+A simple card game utilizing Phaser.io framework
 
 Collect stacks of 4 cards of the same rank or suit.
 
