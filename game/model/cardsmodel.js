@@ -102,6 +102,3 @@ CardsModel = function (game, x, y) {
 	this.fillCardStack();
 	this.shuffleCards();
 };
-
-CardsModel.prototype = Object.create(Object.prototype);
-CardsModel.prototype.constructor = CardsModel;
