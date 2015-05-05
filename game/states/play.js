@@ -59,8 +59,8 @@
       
       //update fund info
       this.cardsLeftText.setText(this.cardsModel.cardsLeft());
-      this.stakeText.setText(this.cardsModel.staked);
-      this.balanceText.setText(this.cardsModel.balance);      
+      this.stakeText.setAnimatedText(this.cardsModel.staked);      
+      this.balanceText.setAnimatedText(this.cardsModel.balance);
 
       //hide closed card if none left
       if (this.cardsModel.cardsLeft() == 0)
@@ -102,8 +102,8 @@
       this.cardsModel.processStacksAfterDraw();
       
       //update funds info
-      this.balanceText.setText(this.cardsModel.balance);
-      this.paidText.setText(this.cardsModel.paid);
+      this.balanceText.setAnimatedText(this.cardsModel.balance);
+      this.paidText.setAnimatedText(this.cardsModel.paid);
 
       //proceed playing
       if (this.cardsModel.cardsLeft() > 0)
