@@ -1,74 +1,86 @@
 
 CardsModel = function (game, x, y) {
 
-	  this.symbols = ["clubs", "hearts", "spades", "diamonds"];
-    this.values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-    this.cardStack = [];
-    this.openCard = null;
-    this.targetStacks = [[], [], []];
-    this.symbolPayout = 3;
-    this.valuePayout = 5;
-    this.balance = 3000;
-    this.staked = 0;
-    this.paid = 0;
-    this.stake = 50;
+    var symbols = ["clubs", "hearts", "spades", "diamonds"];
+    var values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+    var cardStack = [];
+    var openCard = null;
+    var targetStacks = [[], [], []];
+    var symbolPayout = 3;
+    var valuePayout = 5;
+    var balance = 3000;
+    var staked = 0;
+    var paid = 0;
+    var stake = 50;
 
     this.fillCardStack = function(){      
       
-      for (var i=0; i<this.symbols.length; i++) 
+      for (var i=0; i<symbols.length; i++) 
       {
-          for (var j=0; j<this.values.length; j++) 
+          for (var j=0; j<values.length; j++) 
           {
-              this.cardStack.push({value:this.values[j], symbol:this.symbols[i]});                            
+              cardStack.push({value:values[j], symbol:symbols[i]});                            
           }
       }      
     };
 
     this.shuffleCards = function(){
-      var currentIndex = this.cardStack.length, temporaryValue, randomIndex;
+      var currentIndex = cardStack.length, temporaryValue, randomIndex;
 
       while (0 !== currentIndex) 
       {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;        
-        temporaryValue = this.cardStack[currentIndex];
-        this.cardStack[currentIndex] = this.cardStack[randomIndex];
-        this.cardStack[randomIndex] = temporaryValue;
+        temporaryValue = cardStack[currentIndex];
+        cardStack[currentIndex] = cardStack[randomIndex];
+        cardStack[randomIndex] = temporaryValue;
       }      
     };
 
+    this.getStakedAmount = function(){
+      return staked;
+    };
+
+    this.getPaidAmount = function(){
+      return paid;
+    };
+
+    this.getBalance = function(){
+      return balance;
+    };
+
     this.cardsLeft = function(){
-    	return this.cardStack.length;
+    	return cardStack.length;
     };
 
     this.popCard = function(){
 
-    	this.balance -= this.stake;
-    	this.staked += this.stake;
+    	balance -= stake;
+    	staked += stake;
 
-    	return this.cardStack.pop();
+    	return cardStack.pop();
     };
 
     this.pushCardToStack = function(card, index){
-    	this.targetStacks[index].push(card);
+    	targetStacks[index].push(card);
     };
 
     this.numCardsInStack = function(index){
-    	return this.targetStacks[index].length;
+    	return targetStacks[index].length;
     };
 
     this.processStacksAfterDraw = function(){
     	var stackArray = null;
 	    for (var i = 0; i < 3; i++) 
 	    {
-	      stackArray = this.targetStacks[i];
+	      stackArray = targetStacks[i];
 	      
 	        if (stackArray.length == 4) 
 	        {
 	          var wonAmount = this.getStackWinAmount(stackArray);
 	          
-	          this.balance += wonAmount            	          
-              this.paid += wonAmount;              
+	          balance += wonAmount            	          
+            paid += wonAmount;              
 
 	          stackArray.forEach(function(card){ card.kill(); })            
 	          stackArray.length = 0;
@@ -82,10 +94,10 @@ CardsModel = function (game, x, y) {
       var hasSameSymbol = this.hasSameValuesFor(stack, "cardSymbol");
 
       if (hasSameValues)
-        return 4 * this.stake * this.valuePayout;
+        return 4 * stake * valuePayout;
       else
       if (hasSameSymbol)
-        return 4 * this.stake * this.symbolPayout;
+        return 4 * stake * symbolPayout;
       else
       return 0;
     };

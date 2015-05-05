@@ -37,9 +37,9 @@
       this.crossMark2 = new CrossMark(this.game, 490, 280, 2);
 
       //texts
-      this.balanceText = new ScoreText(this.game, 150, 63, this.cardsModel.balance);      
-      this.stakeText = new ScoreText(this.game, 140, 117, this.cardsModel.staked);      
-      this.paidText = new ScoreText(this.game, 125, 171, this.cardsModel.paid); 
+      this.balanceText = new ScoreText(this.game, 150, 63, this.cardsModel.getBalance());      
+      this.stakeText = new ScoreText(this.game, 140, 117, this.cardsModel.getStakedAmount());      
+      this.paidText = new ScoreText(this.game, 125, 171, this.cardsModel.getPaidAmount()); 
       this.cardsLeftText = new ScoreText(this.game, 305, 67, this.cardsModel.cardsLeft())
 
       //closed card
@@ -59,8 +59,8 @@
       
       //update fund info
       this.cardsLeftText.setText(this.cardsModel.cardsLeft());
-      this.stakeText.setAnimatedText(this.cardsModel.staked);      
-      this.balanceText.setAnimatedText(this.cardsModel.balance);
+      this.stakeText.setAnimatedText(this.cardsModel.getStakedAmount());      
+      this.balanceText.setAnimatedText(this.cardsModel.getBalance());
 
       //hide closed card if none left
       if (this.cardsModel.cardsLeft() == 0)
@@ -102,14 +102,14 @@
       this.cardsModel.processStacksAfterDraw();
       
       //update funds info
-      this.balanceText.setAnimatedText(this.cardsModel.balance);
-      this.paidText.setAnimatedText(this.cardsModel.paid);
+      this.balanceText.setAnimatedText(this.cardsModel.getBalance());
+      this.paidText.setAnimatedText(this.cardsModel.getPaidAmount());
 
       //proceed playing
       if (this.cardsModel.cardsLeft() > 0)
         this.nextCard();
       else
-        this.game.state.start('gameover', false, false, this.cardsModel.balance);        
+        this.game.state.start('gameover', false, false, this.cardsModel.getBalance());        
     }    
   };
   
