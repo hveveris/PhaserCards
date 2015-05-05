@@ -3,11 +3,15 @@ A simple card game utilizing Phaser.io framework
 
 Collect stacks of 4 cards of the same rank or suit.
 
+
 Initial balance 3000.
+
 Hardcoded stake of 50.
 
 Payouts 
+
 Same rank: 4 * stake * 5
+
 Same suit: 4 * stake * 3
 
 
