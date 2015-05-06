@@ -8,6 +8,8 @@ Hardcoded stake of 50.
 Payout for the same rank: 4 \* stake \* 5  
 Payout for the same suit: 4 \* stake \* 3
 
+**Install**  
+`$ cd <path_to_project_folder>` and then `$ grunt`
 
 **Code includes:**
 - setting up game states
