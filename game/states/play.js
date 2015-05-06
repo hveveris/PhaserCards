@@ -36,6 +36,8 @@
       this.crossMark1 = new CrossMark(this.game, 290, 280, 1);
       this.crossMark2 = new CrossMark(this.game, 490, 280, 2);
 
+      this.tap = this.game.add.audio('tap');
+
       //texts
       this.balanceText = new ScoreText(this.game, 150, 63, this.cardsModel.getBalance());      
       this.stakeText = new ScoreText(this.game, 140, 117, this.cardsModel.getStakedAmount());      
@@ -73,6 +75,8 @@
     },
     
     crossMarkListener: function(crossMark) {
+      //play sound
+      this.tap.play();
 
       //disable clicks until next card
       this.crossMark0.disable();

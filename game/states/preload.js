@@ -16,6 +16,9 @@ Preload.prototype = {
     //listen for loadComplete
     this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
     this.load.setPreloadSprite(this.asset);
+    
+    //sounds
+    this.load.audio('tap', ['assets/tap.mp3', 'assets/tap.ogg']);
 
     //load used assets
     this.load.atlas('assets', 'assets/assets.png', 'assets/assets.json');
