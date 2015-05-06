@@ -19,6 +19,8 @@ Preload.prototype = {
     
     //sounds
     this.load.audio('tap', ['assets/tap.mp3', 'assets/tap.ogg']);
+    this.load.audio('won', ['assets/won.mp3', 'assets/won.ogg']);
+    this.load.audio('lost', ['assets/lost.mp3', 'assets/lost.ogg']);
 
     //load used assets
     this.load.atlas('assets', 'assets/assets.png', 'assets/assets.json');

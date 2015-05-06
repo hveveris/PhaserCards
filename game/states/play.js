@@ -36,7 +36,10 @@
       this.crossMark1 = new CrossMark(this.game, 290, 280, 1);
       this.crossMark2 = new CrossMark(this.game, 490, 280, 2);
 
-      this.tap = this.game.add.audio('tap');
+      //sounds
+      this.tap = this.game.add.audio('tap');      
+      this.won = this.game.add.audio('won');
+      this.lost = this.game.add.audio('lost');
 
       //texts
       this.balanceText = new ScoreText(this.game, 150, 63, this.cardsModel.getBalance());      
@@ -103,8 +106,15 @@
     checkResult: function(){
 
       //process stacks
-      this.cardsModel.processStacksAfterDraw();
-      
+      var result = this.cardsModel.processStacksAfterDraw();
+
+      //play sound if needed
+      if (result === 'won')
+        this.won.play();
+      else
+      if (result === 'lost')
+        this.lost.play();
+
       //update funds info
       this.balanceText.setAnimatedText(this.cardsModel.getBalance());
       this.paidText.setAnimatedText(this.cardsModel.getPaidAmount());
@@ -113,7 +123,11 @@
       if (this.cardsModel.cardsLeft() > 0)
         this.nextCard();
       else
-        this.game.state.start('gameover', false, false, this.cardsModel.getBalance());        
+        setTimeout(this.endGame, 1000, this);
+    },
+
+    endGame:function(scope){
+      scope.game.state.start('gameover', false, false, scope.cardsModel.getBalance());        
     }    
   };
   

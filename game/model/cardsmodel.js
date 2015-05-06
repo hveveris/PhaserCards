@@ -86,8 +86,11 @@ CardsModel = function () {
 
 	          stackArray.forEach(function(card){ card.kill(); })            
 	          stackArray.length = 0;
+
+            return wonAmount > 0 ? 'won' : 'lost';
 	        }
 	    }
+      return 'proceed';
     };
 
     this.getStackWinAmount = function(stack){
