@@ -10,12 +10,11 @@
   function Play() {}
   Play.prototype = {
     create: function() {
+        this.cardsModel = new CardsModel();
 
-      this.cardsModel = new CardsModel();
-
-      this.addUI();
-      this.addListeners();
-      this.nextCard();
+        this.addUI();
+        this.addListeners();
+        this.nextCard();
     },
 
     update: function() {
@@ -25,7 +24,7 @@
     addUI:function(){
       //repeating background
       this.game.add.tileSprite(0, 0, 800, 600, 'assets', 'table');
-      
+
       //some props
       this.game.add.image(420, -20, 'assets', 'papers');
       this.game.add.image(43, 18, 'assets', 'notes');
@@ -37,18 +36,18 @@
       this.crossMark2 = new CrossMark(this.game, 490, 280, 2);
 
       //sounds
-      this.tap = this.game.add.audio('tap');      
+      this.tap = this.game.add.audio('tap');
       this.won = this.game.add.audio('won');
       this.lost = this.game.add.audio('lost');
 
       //texts
-      this.balanceText = new ScoreText(this.game, 150, 63, this.cardsModel.getBalance());      
-      this.stakeText = new ScoreText(this.game, 140, 117, this.cardsModel.getStakedAmount());      
-      this.paidText = new ScoreText(this.game, 125, 171, this.cardsModel.getPaidAmount()); 
-      this.cardsLeftText = new ScoreText(this.game, 305, 67, this.cardsModel.cardsLeft())
+      this.balanceText = new ScoreText(this.game, 150, 63, this.cardsModel.getBalance());
+      this.stakeText = new ScoreText(this.game, 140, 117, this.cardsModel.getStakedAmount());
+      this.paidText = new ScoreText(this.game, 125, 171, this.cardsModel.getPaidAmount());
+      this.cardsLeftText = new ScoreText(this.game, 305, 67, this.cardsModel.cardsLeft());
 
       //closed card
-      this.closedCard = new ClosedCard(this.game, 315, 155);      
+      this.closedCard = new ClosedCard(this.game, 315, 155);
     },
 
     addListeners: function(){
@@ -58,13 +57,13 @@
     },
 
     nextCard:function(){
-      
+
       //draw card
       this.currentCard = new OpenCard(this.game, 290, 98, this.cardsModel.popCard());
-      
+
       //update fund info
       this.cardsLeftText.setText(this.cardsModel.cardsLeft());
-      this.stakeText.setAnimatedText(this.cardsModel.getStakedAmount());      
+      this.stakeText.setAnimatedText(this.cardsModel.getStakedAmount());
       this.balanceText.setAnimatedText(this.cardsModel.getBalance());
 
       //hide closed card if none left
@@ -76,7 +75,7 @@
       this.crossMark1.enable();
       this.crossMark2.enable();
     },
-    
+
     crossMarkListener: function(crossMark) {
       //play sound
       this.tap.play();
@@ -91,11 +90,11 @@
 
       //save to stack
       this.cardsModel.pushCardToStack(this.currentCard, stackIndex);
-      
+
       //get y target position offset for stack
       var offsetY = this.cardsModel.numCardsInStack(stackIndex) * 30 + 50;
 
-      //animate card  
+      //animate card
       var tween = this.game.add
                     .tween(this.currentCard)
                     .to( { x:crossMark.x, y:crossMark.y + offsetY }, 400, Phaser.Easing.Quadratic.Out, true);
@@ -127,8 +126,8 @@
     },
 
     endGame:function(scope){
-      scope.game.state.start('gameover', false, false, scope.cardsModel.getBalance());        
-    }    
+      scope.game.state.start('gameover', false, false, scope.cardsModel.getBalance());
+    }
   };
-  
+
   module.exports = Play;

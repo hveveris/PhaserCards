@@ -1,5 +1,6 @@
-
 CardsModel = function () {
+
+    var _ = require('underscore');
 
     var symbols = ["clubs", "hearts", "spades", "diamonds"];
     var values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
@@ -13,27 +14,15 @@ CardsModel = function () {
     var paid = 0;
     var stake = 50;
 
-    this.fillCardStack = function(){      
+    this.prepareDeck = function(){      
+
+      _.each(symbols, function(symbol){           
+          _.each(values, function(value){              
+              cardStack.push({symbol:symbol, value:value});
+          })
+      })
       
-      var numValues = values.length;          
-      var numSymbols = symbols.length;
-
-      for (var i=0; i<numSymbols; i++) 
-        for (var j=0; j<numValues; j++) 
-          cardStack.push({value:values[j], symbol:symbols[i]});                                            
-    };
-
-    this.shuffleCards = function(){
-      var currentIndex = cardStack.length, temporaryValue, randomIndex;
-
-      while (0 !== currentIndex) 
-      {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;        
-        temporaryValue = cardStack[currentIndex];
-        cardStack[currentIndex] = cardStack[randomIndex];
-        cardStack[randomIndex] = temporaryValue;
-      }      
+      cardStack = _.shuffle(cardStack);
     };
 
     this.getStakedAmount = function(){
@@ -74,17 +63,15 @@ CardsModel = function () {
       var stackArray = null;      
       var numStacks = targetStacks.length;
 
-	    for (var i = 0; i < numStacks; i++) 
-	    {
-	      stackArray = targetStacks[i];
+	    for (var i = 0; i < numStacks; i++) {
+          stackArray = targetStacks[i];
 	      
 	        if (stackArray.length == 4){
-
-	          wonAmount = this.getStackWinAmount(stackArray);	          
+            wonAmount = this.getStackWinAmount(stackArray);	          
 	          balance += wonAmount            	          
             paid += wonAmount;              
 
-	          stackArray.forEach(function(card){ card.kill(); })            
+	          _.each(stackArray, function(card){ card.kill(); });            
 	          stackArray.length = 0;
 
             return wonAmount > 0 ? 'won' : 'lost';
@@ -107,17 +94,9 @@ CardsModel = function () {
       return 0;
     };
 
-    this.hasSameValuesFor = function(arr, attr){
-      
-      var numItems = arr.length;
-      for (var i = 1; i < numItems; i++)
-      {
-        if (arr[i][attr] !== arr[0][attr])
-            return false;
-      }
-      return true;
+    this.hasSameValuesFor = function(arr, attr){      
+      return _.every(arr, function(card){ return card[attr] === arr[0][attr]; });
     }; 
 
-	this.fillCardStack();
-	this.shuffleCards();
+	this.prepareDeck();	
 };
